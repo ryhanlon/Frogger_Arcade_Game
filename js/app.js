@@ -37,9 +37,12 @@ Enemy.prototype.render = function() {
 
 
 // Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
+let enemyBug1 = new Enemy(-80, 60 + 80 * 0, (Math.floor(Math.random() * 4 + 1) * 60));
+let enemyBug2 = new Enemy(-80, 60 + 80 * 1, (Math.floor(Math.random() * 4 + 1) * 60));
+let enemyBug3 = new Enemy(-80, 60 + 80 * 2, (Math.floor(Math.random() * 4 + 1) * 60));
 
+// Place all enemy objects in an array called allEnemies
+let allEnemies = [enemyBug1, enemyBug2, enemyBug3];
 
 
 // This listens for key presses and sends the keys to your
