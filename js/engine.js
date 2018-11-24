@@ -1,7 +1,7 @@
 /* Engine.js
  * This file provides the game loop functionality (update entities and render),
  * draws the initial game board on the screen, and then calls the update and
- * render methods on your player and enemy objects (defined in your app.js).
+ * render methods on your player and enemy objects (defined in your appPractice.js).
  *
  * A game engine works by drawing the entire game screen over and over, kind of
  * like a flipbook you may have created as a kid. When your player moves across
@@ -10,7 +10,7 @@
  * is being drawn over and over, presenting the illusion of animation.
  *
  * This engine makes the canvas' context (ctx) object globally available to make
- * writing app.js a little simpler to work with.
+ * writing appPractice.js a little simpler to work with.
  */
 
 var Engine = (function(global) {
@@ -24,7 +24,6 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    // canvas.width = 505;
     canvas.width = 707;
     canvas.height = 606;
     doc.body.appendChild(canvas);
@@ -76,7 +75,7 @@ var Engine = (function(global) {
      * the need to add an additional function call here. For now, we've left
      * it commented out - you may or may not want to implement this
      * functionality this way (you could just implement collision detection
-     * on the entities themselves within your app.js file).
+     * on the entities themselves within your appPractice.js file).
      */
     function update(dt) {
         // updateEntities(dt);
@@ -84,7 +83,7 @@ var Engine = (function(global) {
     }
 
     /* This is called by the update function and loops through all of the
-     * objects within your allEnemies array as defined in app.js and calls
+     * objects within your allEnemies array as defined in appPractice.js and calls
      * their update() methods. It will then call the update function for your
      * player object. These update methods should focus purely on updating
      * the data/properties related to the object. Do your drawing in your
@@ -94,7 +93,7 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
-        player.update();
+        // player.update();
     }
 
     /* This function initially draws the "game level", it will then call
@@ -116,7 +115,7 @@ var Engine = (function(global) {
                 'images/grass-block.png'    // Row 2 of 2 of grass
             ],
             numRows = 6,
-            numCols = 5,
+            numCols = 7,
             row, col;
 
         // Before drawing, clear existing canvas
@@ -139,12 +138,12 @@ var Engine = (function(global) {
             }
         }
 
-        // renderEntities();
+        renderEntities();
     }
 
     /* This function is called by the render function and is called on each game
      * tick. Its purpose is to then call the render functions you have defined
-     * on your enemy and player entities within app.js
+     * on your enemy and player entities within appPractice.js
      */
     function renderEntities() {
         /* Loop through all of the objects within the allEnemies array and call
@@ -180,7 +179,8 @@ var Engine = (function(global) {
 
     /* Assign the canvas' context object to the global variable (the window
      * object when run in a browser) so that developers can use it more easily
-     * from within their app.js files.
+     * from within their appPractice.js files.
      */
     global.ctx = ctx;
+
 })(this);
