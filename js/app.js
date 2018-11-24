@@ -49,10 +49,13 @@ Player.prototype.render = function() {
 };
 
 
-// Now instantiate your objects.
-let enemyBug1 = new Enemy(-80, 60, (Math.floor(Math.random() * 4 + 1) * 60));
-let enemyBug2 = new Enemy(-80, 60 + 80, (Math.floor(Math.random() * 4 + 1) * 60));
-let enemyBug3 = new Enemy(-80, 60 + 80 * 2, (Math.floor(Math.random() * 4 + 1) * 60));
+// Objects instantiated
+// randomAtor of random speeds for enemy
+const randomAtor = () => (Math.floor(Math.random() * 500 + 1 / 3));
+
+let enemyBug1 = new Enemy(-80, 60, randomAtor());
+let enemyBug2 = new Enemy(-80, 60 + 80, randomAtor());
+let enemyBug3 = new Enemy(-80, 60 + 80 * 2, randomAtor());
 
 // Place all enemy objects in an array called allEnemies
 let allEnemies = [enemyBug1, enemyBug2, enemyBug3];
