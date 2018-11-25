@@ -21,11 +21,11 @@ Enemy.prototype.update = function(dt) {
 	// which will ensure the game runs at the same speed for all computers
 
 	this.x += this.speed * dt;
-	if (this.x > 707) {
-		this.x = -100;
-		let someSpeed = Math.floor(Math.random() * 4 + 1);
-		this.speed = 60 * someSpeed;
-	}
+	// if (this.x > 707) {
+	// 	this.x = -100;
+	// 	let someSpeed = Math.floor(Math.random() * 4 + 1);
+	// 	this.speed = 60 * someSpeed;
+	// }
 };
 
 // Draw the enemy on the screen
@@ -41,6 +41,14 @@ let Player = function() {
     this.sprite = 'images/char-boy.png';
 	this.x = 303;
 	this.y = 404;
+	this.h_step = 101;
+	this.v_step = 83;
+};
+
+// When game ends, put player back in starting position
+Player.prototype.resetPosition = function() {
+	this.x = 303;
+	this.y = 404;
 };
 
 // Draw the player on the screen
@@ -48,6 +56,27 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Keyboard controller with arrow keys
+Player.prototype.handleInput = function (direction) {
+	switch (direction) {
+		case 'left':
+			this.x >= this.h_step ? this.x -= this.h_step : this.x -= 0;
+			break;
+		case 'right':
+			this.x <= (this.h_step * 5) ? this.x += this.h_step : this.x -= 0;
+			break;
+		case 'up':
+			this.y -= this.v_step;
+			if (this.y <= 50) {
+				// updateView('you win!');
+				this.resetPosition();
+			}
+			break;
+		case 'down':
+			this.y <= (this.v_step * 4) ? this.y += this.v_step : this.y += 0;
+			break;
+	}
+};
 
 // Objects instantiated
 // randomAtor of random speeds for enemy
@@ -73,5 +102,7 @@ document.addEventListener('keyup', function(e) {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    if (allowedKeys[e.keyCode]) {
+		player.handleInput(allowedKeys[e.keyCode]);
+	}
 });
