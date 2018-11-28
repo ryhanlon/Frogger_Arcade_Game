@@ -24,7 +24,8 @@ Click [here](#game-interface) to see pictures of the game interface.
 
 
 ##### Technical Components
-- JavaScript (ECMASript 6)
+- JavaScript (ECMAScript 6)
+- CSS and HTML
 
 
 ##### Articles and Tutorials
@@ -35,8 +36,8 @@ Used the following tutorials, articles and docs while building this app.
 
 - 2D Collision Detection [article](http://blog.sklambert.com/html5-canvas-game-2d-collision-detection#d-collision-detection)
 
-- Tutorial Request: FEND Project 3 - Service Workers [video](https://www.youtube.com/watch?v=2PY733qFR3A&feature=youtu.be).
-This video gave a nice review of Service Worker without a lot of additional files.
+- Tutorial Request: FEND Project 3 Arcade Game - Walk Through, by Ryan Waite [video](https://www.youtube.com/watch?v=XEVnMgYblGc&index=3&list=PLKC17wty6rS1XVZbRlWjYU0WVsIoJyO3s).
+This video helped with structuring some of the prototypes, helped me to see the components put together for the project, sample of Math.random
 
 - w3schools web docs
     - [Game Canvas](https://www.w3schools.com/graphics/game_canvas.asp)
@@ -46,12 +47,17 @@ This video gave a nice review of Service Worker without a lot of additional file
     - 2d Breakout Game Using Pure Javascript [intro docs](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript)
     - Set up wall boundries [see docs](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript/Bounce_off_the_walls)
 
+#### Future Features
+- Add a scoring system
+- Add sound efx
+- Add some 'Treasures' for additional points
+
 #### Game Interface
 
-![Game Screen 1](./docs/img/mobile_home-1.png)
+![Game Screen 1](./docs/imgs/fg_startGame.png)
 
-![Game Screen 2](./docs/img/mobile_home-2.png)
+![Game Screen 2](./docs/imgs/fg_winGame.png)
 
-![Game Screen 3](./docs/img/mobile_reviews-1.png)
+![Game Screen 3](./docs/imgs/fg_loseGame.png)
 
 

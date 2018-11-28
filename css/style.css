@@ -2,6 +2,7 @@ body {
     text-align: center;
 }
 
+
 /*-------------------------------
       Winner/Loser Message
 --------------------------------*/
@@ -48,5 +49,3 @@ body {
     font-size: 3.5vh;
     box-shadow: 1px 1px 3px 3px darkgrey;
 }
-
-
