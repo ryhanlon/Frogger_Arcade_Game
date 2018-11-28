@@ -33,14 +33,14 @@ Click [here](#game-interface) to see pictures of the game interface.
 Used the following tutorials, articles and docs while building this app.
 
 
+- 2D Collision Detection [article](http://blog.sklambert.com/html5-canvas-game-2d-collision-detection#d-collision-detection)
 
-- Tutorial Request: FEND Project 5 - Service Workers [video](https://www.youtube.com/watch?v=2PY733qFR3A&feature=youtu.be).
+- Tutorial Request: FEND Project 3 - Service Workers [video](https://www.youtube.com/watch?v=2PY733qFR3A&feature=youtu.be).
 This video gave a nice review of Service Worker without a lot of additional files.
 
 - w3schools web docs
     - [Game Canvas](https://www.w3schools.com/graphics/game_canvas.asp)
-    - [a]()
-    - [S]()
+    - [onClick Event](https://www.w3schools.com/jsref/event_onclick.asp)
 
 - MDN web docs
     - 2d Breakout Game Using Pure Javascript [intro docs](https://developer.mozilla.org/en-US/docs/Games/Tutorials/2D_Breakout_game_pure_JavaScript)

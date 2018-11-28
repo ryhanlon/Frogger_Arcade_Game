@@ -1,3 +1,52 @@
 body {
     text-align: center;
 }
+
+/*-------------------------------
+      Winner/Loser Message
+--------------------------------*/
+.message-container {
+    position: absolute;
+    top: 0;
+    left: -124vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(50, 37, 60, 0.9);
+    color: #ffffff;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.message {
+    line-height: 2.2;
+    text-align: center;
+    padding-top: 15vh;
+    font-size: 3.2vh;
+    letter-spacing: .1vw;
+}
+
+.show-message {
+    left: 0;
+    opacity: 1;
+}
+
+.remove-message {
+    left: -124vw;
+    opacity: 0;
+}
+
+
+/*-------------------------------
+        Play again button
+--------------------------------*/
+.button {
+    background-color: #b537a3;
+    width: 35vw;
+    height: 12vh;
+    border-radius: 10px;
+    border-style: groove;
+    font-size: 3.5vh;
+    box-shadow: 1px 1px 3px 3px darkgrey;
+}
+
+

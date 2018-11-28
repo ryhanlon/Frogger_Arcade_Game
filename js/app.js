@@ -14,19 +14,55 @@ let Enemy = function(x, y, speed) {
     this.speed = speed;
 };
 
+// Collision details
+// Enemy.prototype.collision = function() {
+	// let enemyXRight = this.x + 50;
+	// let enemyXLeft = this.x - 50;
+	// let enemyYTop = this.y - 50;
+	// let enemyYBottom = this.y + 50;
+
+// 	if (object1.x < object2.x + object2.width  && object1.x + object1.width  > object2.x &&
+// 		object1.y < object2.y + object2.height && object1.y + object1.height > object2.y) {
+// // The objects are touching
+// }
+
+// 	if (player.x < enemyXRight && player.x > enemyXLeft &&
+// 		player.y > enemyYTop  && player.y < enemyYBottom) {
+// // The objects are touching
+// 		Player.resetPosition();
+
+// }
+//
+// };
+
 // Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // Multiply any movement by the dt parameter
+	// Multiply any movement by the dt parameter
 	// which will ensure the game runs at the same speed for all computers
 
 	this.x += this.speed * dt;
-	// if (this.x > 707) {
-	// 	this.x = -100;
-	// 	let someSpeed = Math.floor(Math.random() * 4 + 1);
-	// 	this.speed = 60 * someSpeed;
-	// }
+	if (this.x > 707) {
+		this.x = -100;
+		let someSpeed = Math.floor(Math.random() * 15 + 1 / 2);
+		this.speed = 60 * someSpeed;
+	}
+
+	// Sides of enemy for collision
+	let enemyXRight = this.x + 65;
+	let enemyXLeft = this.x - 65;
+	let enemyYTop = this.y - 65;
+	let enemyYBottom = this.y + 65;
+
+	if (player.x < enemyXRight && player.x > enemyXLeft &&
+		player.y > enemyYTop && player.y < enemyYBottom) {
+// The objects are touching
+		player.resetPosition();
+		player.loseMessage();
+
+	}
 };
+
 
 // Draw the enemy on the screen
 Enemy.prototype.render = function() {
@@ -45,8 +81,50 @@ let Player = function() {
 	this.v_step = 83;
 };
 
+
+Player.prototype.winMessage = function() {
+	const winMessage = `Hooray!  You win!`;
+
+	const messageContainer = document.querySelector('.message-container');
+	// messageContainer.classList.remove('remove-message');
+	messageContainer.classList.add('show-message');
+
+	const messageHeading = document.querySelector('.message');
+	messageHeading.innerText = winMessage;
+	// winSound();
+
+};
+
+Player.prototype.loseMessage = function() {
+	const loseMessage = `Oh, drats.  The enemy-bug got you!`;
+
+	const messageContainer = document.querySelector('.message-container');
+	// messageContainer.classList.remove('remove-message');
+	messageContainer.classList.add('show-message');
+
+	const messageHeading = document.querySelector('.message');
+	messageHeading.innerText = loseMessage;
+	// winSound();
+
+};
+
+Player.prototype.removeGameAlertLoser = function () {
+	const message = document.querySelector('.message-container');
+	message.classList.remove('show-message');
+	message.classList.add('remove-message');
+};
+
+
+Player.prototype.removeButton = function() {
+	document.getElementById("playAgain").addEventListener("click", this.removeGameAlertLoser);
+
+};
+
+
 // When game ends, put player back in starting position
 Player.prototype.resetPosition = function() {
+	this.winMessage();
+	this.removeButton();
 	this.x = 303;
 	this.y = 404;
 };
